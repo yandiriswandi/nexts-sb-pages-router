@@ -1,7 +1,6 @@
 import { Geist, Geist_Mono } from 'next/font/google'
 import Head from 'next/head'
 import React from 'react'
-import styles from '@/styles/Home.module.css'
 import Link from 'next/link'
 
 const geistSans = Geist({
@@ -41,6 +40,9 @@ export default function RootLayout({
               </Link>
               <Link href={'/about'}>
                 <li>About</li>
+              </Link>
+              <Link href={'/note/server'}>
+                <li>Notes</li>
               </Link>
             </ul>
           </div>
