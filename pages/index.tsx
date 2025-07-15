@@ -12,11 +12,14 @@
 //   variable: '--font-geist-mono',
 //   subsets: ['latin'],
 // })
+import { dataStore } from '@/store/dataStore'
 
 export default function Home() {
+  const { inc } = dataStore()
   return (
     <div>
       Index Page <h1 className="text-3xl font-bold underline">Hello World!</h1>
+      <button onClick={() => inc()}>Count ++</button>
     </div>
   )
 }

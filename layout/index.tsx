@@ -2,6 +2,7 @@ import { Geist, Geist_Mono } from 'next/font/google'
 import Head from 'next/head'
 import React from 'react'
 import Link from 'next/link'
+import { dataStore } from '@/store/dataStore'
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -20,6 +21,7 @@ export default function RootLayout({
   children: React.ReactNode
   metaTitle: string
 }) {
+  const { count } = dataStore()
   return (
     <div>
       <Head>
@@ -47,7 +49,12 @@ export default function RootLayout({
             </ul>
           </div>
         </header>
-        <main className="flex-1 container mx-auto p-4">{children}</main>
+        <main className="flex-1 container mx-auto p-4">
+          <div>
+            <p>{`Count : ${count}`}</p>
+          </div>
+          {children}
+        </main>
         <footer className="bg-gray-800 text-white p-4 text-center">
           <p>&copy;{new Date().getFullYear()} My Personal Website</p>
         </footer>
